@@ -1,0 +1,20 @@
+.led {
+  margin: 0 auto;
+  margin-left: 10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+.green {
+  background-color: #00C781;
+  
+}  
+
+.yellow {
+  background-color: #FFAA15;
+}
+
+.grey {
+  background-color: #CCCCCC;
+}

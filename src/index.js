@@ -1,12 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import App from './components/App';
+import { Grommet } from 'grommet';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const theme = {
+  global: {
+    colors: {
+      brand: '#000000',
+      'accent-1': '#D6219C',
+      'accent-2': '#871FFF'
+    },
+    focus: {
+      border: {
+        color: '#D6219C'
+      }
+    },
+    font: {
+      family: 'Roboto',
+      size: '14px',
+      height: '20px',
+    },
+  },
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<Grommet theme={theme} full><App /></Grommet>, document.getElementById('root'));
