@@ -73,8 +73,6 @@ Using the Nexmo CLI, link the previously created phone number with the ngrok for
 nexmo link:sms phone_number https://********.ngrok.io/inboundSMS
 ```
 
-Also take note: this application uses a `POST` webhook for Inbound SMS.  Be sure to select `POST` in your settings.
-
 ## Try it out
 
 With the application running, enter `http://localhost:8000` in your browser. Select a language in the upper right drop down menu, and send an SMS message to the phone number you purchased.  The screen will respond with a translation of your text message in real-time.
