@@ -1,6 +1,6 @@
 # Real-Time Google Translate SMS Demo Application
 
-This demo application will recieve incoming SMS messages, translate them into a language of your choice and display them on the screen in real time.
+This demo application will recieve incoming SMS messages, translate them into a language of your choice, and display them on the screen in real time.
 
 The project uses Node, React, Google Translate and Nexmo to create a real-time SMS translation demo application. Using a websocket, incoming text messages are sent to Google Translate API and then forwarded to the front-end application for display.
 
@@ -63,7 +63,7 @@ docker run -p 8000:8000 nexmo-demo-app
 Expose the application to the internet using tools like [ngrok](https://ngrok.com/). To see how, [check out this guide](https://www.nexmo.com/blog/2017/07/04/local-development-nexmo-ngrok-tunnel-dr/).
 
 1. Run `ngrok http 8000`
-1. Copy the forwarding address to update the webhook route. `https://********.ngrok.io`
+1. Copy the forwarding address to update the webhook route. `https://********.ngrok.io/inboundSMS`
 
 ### Update Nexmo Inbound SMS Webhook
 
