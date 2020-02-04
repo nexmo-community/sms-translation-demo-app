@@ -1,6 +1,6 @@
 FROM node:13.7-alpine as dev-stage
 
-MAINTAINER Kelly J Andrews <kelly@kellyjandrews.com>
+MAINTAINER Kelly J Andrews <kelly.andrews@vonage.com>
 
 WORKDIR /usr/src
 
