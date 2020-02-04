@@ -1,6 +1,8 @@
 # Real-Time Google Translate SMS Demo Application
 
-This project uses Node, React, Google Translate and Nexmo to create a real-time SMS translation demo application. Using a websocket, incoming text messages are sent to Google Translate API and then forwarded to the front-end application for display.
+This demo application will recieve incoming SMS messages, translate them into a language of your choice and display them on the screen in real time.
+
+The project uses Node, React, Google Translate and Nexmo to create a real-time SMS translation demo application. Using a websocket, incoming text messages are sent to Google Translate API and then forwarded to the front-end application for display.
 
 ## Welcome to Nexmo
 
