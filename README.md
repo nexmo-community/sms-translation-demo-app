@@ -16,12 +16,11 @@ Enable the [Google Cloud Translation API](https://console.cloud.google.com/apis/
 
 For this demo app, a Nexmo number and SMS webhook are required. This can be setup with the Nexmo CLI. Install the CLI by following [these instructions](https://github.com/Nexmo/nexmo-cli#installation). Once installed, you can purchase a new virtual number from the terminal.
 
-```
+```bash
 nexmo number:buy --country_code US
 ```
 
 Copy the phone number down for the next step.
-
 
 ### Running Locally
 
@@ -31,29 +30,30 @@ You will need a small `.env` file to handle a couple configuration items.
 
 1. Run `touch .env`
 1. Copy and paste the following:
-    ```
+
+    ```bash
     GOOGLE_APPLICATION_CREDENTIALS=./google_creds.json
     REACT_APP_PHONE_NUMBER=12018974206
     REACT_APP_COUNTRY_CODE=US
     ```
+
 1. Add your Nexmo number
 
 #### Node
 
 Run the following command in a terminal to start your application:
 
-```
+```bash
 npm install && npm run prod
 ```
 
 This will build the React application and start the Express server on port 8000.
 
-
 #### Docker
 
 If using Docker is preferred, you can start the application buy building the image and then starting a container:
 
-```
+```bash
 docker build -t nexmo-demo-app ./
 docker run -p 8000:8000 nexmo-demo-app
 ```
@@ -69,7 +69,7 @@ Expose the application to the internet using tools like [ngrok](https://ngrok.co
 
 Using the Nexmo CLI, link the previously created phone number with the ngrok forwarding address:  
 
-```
+```bash
 nexmo link:sms phone_number https://********.ngrok.io/inboundSMS
 ```
 
@@ -92,10 +92,3 @@ We love to hear from you so if you have questions, comments or find a bug in the
 ## Further Reading
 
 * Check out the Developer Documentation at <https://developer.nexmo.com>
-
-<!-- add links to the api reference, other documentation, related blog posts, whatever someone who has read this far might find interesting :) -->
-
-
-
-
-
