@@ -70,7 +70,7 @@ Expose the application to the internet using tools like [ngrok](https://ngrok.co
 Using the Nexmo CLI, link the previously created phone number with the ngrok forwarding address:  
 
 ```
-nexmo link:sms phone_number https://********.ngrok.io
+nexmo link:sms phone_number https://********.ngrok.io/inboundSMS
 ```
 
 Also take note: this application uses a `POST` webhook for Inbound SMS.  Be sure to select `POST` in your settings.
