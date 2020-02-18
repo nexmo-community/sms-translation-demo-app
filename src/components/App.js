@@ -4,11 +4,6 @@ import { Box, Grid, Heading, Main, Select, Text } from 'grommet';
 import { parsePhoneNumberFromString } from 'libphonenumber-js'
 import "./App.css";
 
-
-//TODO 
-// Wrap in Docker Container
-// Adjust colors?
-
 const phone_number = parsePhoneNumberFromString(process.env.REACT_APP_PHONE_NUMBER.toString(), process.env.REACT_APP_COUNTRY_CODE);
 const CONNECTION_STATUS_CONNECTING = 0;
 const CONNECTION_STATUS_OPEN = 1;
