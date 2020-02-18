@@ -13,6 +13,21 @@ const wss = new WebSocket.Server({ server, path: "/socket" });
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+// this is used with the heroku one-click install.
+// if you are running locally, use GOOGLE_APPLICATION_CREDENTIALS to point to the file location
+let config = null;
+
+if (process.env.GOOGLE_APPLICATION_CREDENTIALS === undefined) {
+  config = {
+    projectId: 'nexmo-extend',
+    credentials: {
+      client_email: process.env.GOOGLE_CLIENT_EMAIL,
+      private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n')
+    }
+  }
+}
+
+
 let translateTo = 'en';
 
 wss.on('connection', (ws) => {
