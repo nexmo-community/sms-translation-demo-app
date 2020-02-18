@@ -47,8 +47,10 @@ const App = () => {
   const [messageHistory, setMessageHistory] = useState([]);
   const messagesEndRef = useRef(null);
 
+  const protocolPrefix = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+  let { host } = window.location;
   //eslint-disable-next-line
-  const [sendMessage, lastMessage, readyState, getWebSocket] = useWebSocket(`ws://localhost:8000/socket`, STATIC_OPTIONS);
+  const [sendMessage, lastMessage, readyState] = useWebSocket(`${protocolPrefix}//${host}/socket`, STATIC_OPTIONS);
   const [translateValue, setTranslateValue] = React.useState('English');
 
   useEffect(() => {if (lastMessage !== null) setMessageHistory(prev => prev.concat(lastMessage))}, [lastMessage]);
