@@ -33,7 +33,7 @@
     },
     "REACT_APP_COUNTRY_CODE": {
       "description": "The Nexmo phone number country code for proper formatting.",
-      "value": "en",
+      "value": "US",
       "required": true
     }
   }
