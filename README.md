@@ -24,7 +24,7 @@ Copy the phone number down for the next step.
 
 ### Running with Heroku
 
-You can install the demo application on Heroku using this Heroku Button, your Nexmo number, and `google_creads.json`.
+You can install the demo application on Heroku using this Heroku Button, your Nexmo number, and `google_creads.json`
 
 [![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
 
@@ -73,10 +73,12 @@ Expose the application to the internet using tools like [ngrok](https://ngrok.co
 
 ### Update Nexmo Inbound SMS Webhook
 
-Using the Nexmo CLI, link the previously created phone number with the ngrok forwarding address:  
+Using the Nexmo CLI, link the previously created phone number with the ngrok forwarding address or the Heroku application URL:  
 
 ```bash
 nexmo link:sms phone_number https://********.ngrok.io/inboundSMS
+// or //
+nexmo link:sms phone_number https://********.herokuapp.com/inboundSMS
 ```
 
 ## Try it out
