@@ -84,7 +84,7 @@ setInterval(() => {
 }, 10000);
 
 function translateText(params) {
-  const translate = new Translate();
+  const translate = new Translate(config);
   const target = translateTo || 'en';
 
   return translate.translate(params.text, target)
