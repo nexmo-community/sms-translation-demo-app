@@ -1,0 +1,40 @@
+{
+  "name": "SMS Translation Demo App",
+  "description": "Example using Google Cloud Translation API to translate SMS messages.",
+  "keywords": [
+    "translation",
+    "sms",
+    "nodejs",
+    "Google Cloud Translation",
+    "nexmo"
+  ],
+  "website": "https://developer.nexmo.com/",
+  "repository": "https://github.com/nexmo-community/sms-translation-demo-app",
+  "env": {
+    "GOOGLE_CLIENT_EMAIL": {
+      "description": "The client_email property from your google_creds.json file.",
+      "value": "service_account_name@project.iam.gserviceaccount.com",
+      "required": true
+    },
+    "GOOGLE_PRIVATE_KEY": {
+      "description": "The private_key property from your google_creds.json file. Make sure to copy and paste everything here.",
+      "value": "-----BEGIN PRIVATE KEY-----",
+      "required": true
+    },
+    "GOOGLE_PROJECT_ID": {
+      "description": "The project_id property from your google_creds.json file. Make sure to copy and paste everything here.",
+      "value": "project_id",
+      "required": true
+    },
+    "REACT_APP_PHONE_NUMBER": {
+      "description": "The Nexmo phone number to display on the screen.",
+      "value": "",
+      "required": true
+    },
+    "REACT_APP_COUNTRY_CODE": {
+      "description": "The Nexmo phone number country code for proper formatting.",
+      "value": "en",
+      "required": true
+    }
+  }
+}
