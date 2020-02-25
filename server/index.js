@@ -27,18 +27,16 @@ if (process.env.GOOGLE_APPLICATION_CREDENTIALS === undefined) {
   }
 }
 
-
-let translateTo = 'en';
-
 wss.on('connection', (ws) => {
   ws.isAlive = true;
+  ws.translateTo = 'en';
 
   ws.on('pong', () => {
     ws.isAlive = true;
   });
 
   ws.on('message', (message) => {
-    translateTo = message;
+    ws.translateTo = message;
   });
 
 });
@@ -57,22 +55,38 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, '../build', 'index.html'));
 });
 
-const _handleSMS = async (req, res) => {
-  let translation = await translateText(req.body);
-  let response = {
-    from: obfuscateNumber(req.body.msisdn),
-    translation: translation.translatedText,
-    originalLanguage: translation.detectedSourceLanguage,
-    originalMessage: req.body.text,
-    translatedTo: translateTo
+const handleRoute = (req, res) => {
+
+  let params = req.body;
+
+  if (req.method === "GET") {
+    params = req.query
   }
-  wss.clients.forEach(client => { client.send(JSON.stringify(response)) });
-  res.send('200');
+
+  if (!params.to || !params.msisdn) {
+    res.status(400).send({ 'error': 'This is not a valid inbound SMS message!' });
+  } else {
+    wss.clients.forEach(async (client) => {
+      let translation = await translateText(params, client.translateTo);
+      let response = {
+        from: obfuscateNumber(req.body.msisdn),
+        translation: translation.translatedText,
+        originalLanguage: translation.detectedSourceLanguage,
+        originalMessage: params.text,
+        translatedTo: client.translateTo
+      }
+
+      client.send(JSON.stringify(response));
+    });
+    
+    res.status(200).end();
+  }
+
 };
 
 app.route('/inboundSMS')
-  .get(_handleSMS)
-  .post(_handleSMS)
+  .get(handleRoute)
+  .post(handleRoute)
   .all((req, res) => res.status(405).send());
 
 setInterval(() => {
@@ -83,9 +97,10 @@ setInterval(() => {
   });
 }, 10000);
 
-function translateText(params) {
-  const translate = new Translate(config);
-  const target = translateTo || 'en';
+const translate = new Translate();
+
+function translateText(params, translateTo = 'en') {
+  const target = translateTo;
 
   return translate.translate(params.text, target)
     .then(data => {
