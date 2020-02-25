@@ -97,7 +97,7 @@ setInterval(() => {
   });
 }, 10000);
 
-const translate = new Translate();
+const translate = config ? new Translate(config) : new Translate();
 
 function translateText(params, translateTo = 'en') {
   const target = translateTo;
