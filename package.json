@@ -16,7 +16,7 @@
     "polished": "^3.4.4",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-scripts": "3.4.0",
+    "react-scripts": "5.0.1",
     "react-use-websocket": "^1.2.0",
     "styled-components": "^5.0.0",
     "ws": "^7.2.1"
